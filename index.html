@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic mail page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-bar" id="nav-bar">
+            <div class="nav-text"><h3>Epic-Mail</h3></div>
+            <div class="starting">
+                    <div class="text-header"><h3>Experience the ease and simplicity </h3></div>              
+            </div>
+            <div class="btn-header"><a href="./html/dashboard.html"><button class="btn">Let's Start</button></a></div>  
+        </nav>
+    </header>
+
+
+    <div class="cover">
+        <div class="bod">
+            <h1>welcome to  <span>Epic Mail</span></h1>
+            <p>your amazing space for sharing emails </p>
+        </div>
+        <div class="buttons">
+            
+            
+              <!-- Buttons to trigger overlays -->
+              <button id="openSignInOverlayBtn">Sign In</button>
+              <button id="openSignUpOverlayBtn">Sign Up</button>
+            
+              <!-- Sign In Overlay -->
+              <div id="signInOverlay" class="overlay">
+                <div class="overlay-content">
+                  <span id="closeSignInOverlayBtn" class="close-btn">&times;</span>
+                  <h2>Sign In</h2>
+                  <form>
+                    <label for="signInUsername">Username:</label>
+                    <input type="text" id="signInUsername" name="username" required><br><br>
+                    <label for="signInPassword">Password:</label>
+                    <input type="password" id="signInPassword" name="password" required><br><br>
+                    <button type="submit">Sign In</button>
+                  </form>
+                </div>
+              </div>
+            
+              <!-- Sign Up Overlay -->
+              <div id="signUpOverlay" class="overlay">
+                <div class="overlay-content">
+                  <span id="closeSignUpOverlayBtn" class="close-btn">&times;</span>
+                  <h2>Sign Up</h2>
+                  <form>
+                    <label for="signUpUsername">Username:</label>
+                    <input type="text" id="signUpUsername" name="username" required><br><br>
+                    <label for="signUpEmail">Email:</label>
+                    <input type="email" id="signUpEmail" name="email" required><br><br>
+                    <label for="signUpPassword">Password:</label>
+                    <input type="password" id="signUpPassword" name="password" required><br><br>
+                    <button type="submit">Sign Up</button>
+                  </form>
+                </div>
+              </div>
+            
+        </div>
+                  
+    </div>
+    <footer>
+        <div class="paraph">
+            <p style="color: white;">With Epic Email’s intuitive interface, you can easily sort, categorize, and manage your messages. <br/>Whether you’re juggling multiple projects or trying to keep track of personal correspondence, <br/>our smart filters and labels help you stay on top of it all.</p>
+        </div>
+    
+    </footer>
+    
+   
+    
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

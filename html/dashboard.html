@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cascading-dashboard.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.3/css/all.min.css" rel="stylesheet">
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Epic Mail</h2>
+
+        <ul>
+           <li><button id="openEmailOverlayBtn">Compose Email</button></li> 
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">Sent</a></li>
+            <li><a href="#">Draft</a></li>
+            <li><a href="#">Bin</a></li>
+            <li><a href="#">Groups</a></li>
+        </ul>
+
+        
+        <!-- Button that triggers the main overlay -->
+        <button id="openListOverlayBtn" class="overlay-button">Create</button>
+
+         <!-- Main Overlay with Text Items -->
+                
+         <div id="listOverlay" class="overlay">
+            <div class="overlay-content">
+              <span id="closeListOverlayBtn"  class="close-btn">&times;</span>
+              <ul>
+                <li class="login-item">New Group</li>
+                <li class="login-item">Add Participant</li>
+                <li>Group 1</li>
+                <li>Group 2</li>
+              </ul>
+            </div>
+          </div>
+         
+           <div id="overlay" class="overlay">
+             <div class="overlay-content">
+               <span id="closeOverlayBtn" class="close-btn">&times;</span>
+               <form>
+                 <label for="username">Group Name</label>
+                 <input type="text" id="groupname" name="username" required><br><br>
+                 <label for="password">Participants Emails</label>
+                 <input type="password" id="email" name="Email" required><br><br>
+                 <button type="submit">Submit</button>
+               </form>
+             </div>
+           </div>
+         
+         
+    </div>
+    <!--overlay for ney email-->
+
+  <!-- Button to trigger email overlay -->
+
+  <!-- Email Overlay -->
+  <div id="emailOverlay" class="overla">
+    <div class="overlay_content">
+      <span id="closeEmailOverlayBtn" class="close-btn">&times;</span>
+      <h2>Compose Email</h2>
+
+      <form action="#" method="POST">
+        <!-- Recipient Email -->
+        <label for="to">To:</label>
+        <input type="email" id="to" name="to" placeholder="Recipient's email" required>
+
+        <!-- Subject -->
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <!-- Email Body -->
+        <label for="body">Message:</label>
+        <textarea id="body" name="body" placeholder="Write your message here..." required></textarea>
+
+        <!-- Send Button -->
+        <button type="submit" class="send-btn">Send</button>
+      </form>
+    </div>
+  </div>    
+    
+    
+
+    <!-- Top Bar -->
+     <div class="main">
+
+        <div class="top-bar">
+            <!-- Search Form -->
+            <div class="search-container">
+               <form class="search-form">
+                    <input type="text" class="search-input" placeholder="Search..." name="search">
+                    <!-- Button with Search Icon -->
+                    <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            
+
+            <!-- Status Container -->
+            <div class="status-container">
+               <div class="status-box"></div>
+               <span class="status-text">Inactive</span>
+            </div>
+
+            <!--user  profile -->
+            <div class="user-profile">
+                <img src="../assets/img/Mbokani.jpeg" alt="User Image" class="user-image">
+                <span class="user-name">User Name</span>
+            </div>
+        </div>
+        
+    
+        <!-- Main Content -->
+         
+         <div class="principal-top-section">
+
+         </div>
+        <div class="dashboard-content">
+            <div class="icon-section">
+
+                <!-- Select All Checkbox and More Button -->
+                <div class="actions-container">
+                    <input type="checkbox" id="select-all-checkbox" class="select-all-checkbox">
+                    <button id="more-button" class="more-button">⋮</button>
+                
+                    <!-- Overlay Menu -->
+                    <div id="overlay-menu" class="overlay-menu">
+                        <div class="menu-item" onclick="selectAllCards(true)">Select All</div>
+                        <div class="menu-item" onclick="markAsRead()">Mark as Read</div>
+                        <div class="menu-item" onclick="selectAllCards(false)">None</div>
+                        <div class="menu-item" onclick="markAsUnread()">Unread</div>
+                    </div>
+                    <div class="top-move">
+                        <button class="move-button" onclick="goBack()">
+                            <span class="left-arrow-icon">&#8592;</span> 
+                        </button>
+                        <button class="move-button" onclick="goForward()">
+                            <span class="right-arrow-icon">&#8594;</span> 
+                        </button>
+                    </div>
+                </div>
+                <div class="principal-options">
+                    <div class="options">
+                        <i class="icon fas fa-user"></i>
+                        <a href=""><h6>Social</h6></a>
+                    </div>
+                    <div class="options1">
+                        <i class="icon fas fa-exclamation"></i>
+                        <a href=""><h6>Primary</h6></a>
+                    </div>
+                    <div class="options">
+                        <i class="icon fas fa-message"></i>
+                        <a href=""><h6>update</h6></a>
+                    </div>
+                    
+                </div>
+                
+                <!--cards-->
+                <div class="card-list">
+                    
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card1" class="select-card">
+                        <label for="card1" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 1" class="sender-img">
+                        <span class="sender-name">Sender 1</span>
+                        <p class="message-preview">This is a preview of the message sent by Sender 1...</p>
+                        <a href="#" class="date-link">2024-09-01</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card2" class="select-card">
+                        <label for="card2" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 2" class="sender-img">
+                        <span class="sender-name">Sender 2</span>
+                        <p class="message-preview">Here's another message preview from Sender 2...</p>
+                        <a href="#" class="date-link">2024-09-02</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 3</span>
+                        <p class="message-preview">Message content preview for Sender 3...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 4</span>
+                        <p class="message-preview">Message content preview for Sender 4...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 5</span>
+                        <p class="message-preview">Message content preview for Sender 5...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 6</span>
+                        <p class="message-preview">Message content preview for Sender 6...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 7</span>
+                        <p class="message-preview">Message content preview for Sender 7...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 8</span>
+                        <p class="message-preview">Message content preview for Sender 8...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 9</span>
+                        <p class="message-preview">Message content preview for Sender 9...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 10</span>
+                        <p class="message-preview">Message content preview for Sender 10...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                    <div class="card" onclick="toggleCard(this)">
+                        <input type="checkbox" id="card3" class="select-card">
+                        <label for="card3" class="custom-checkbox"></label>
+                        <img src="../assets/img/Mbokani.jpeg" alt="Sender 3" class="sender-img">
+                        <span class="sender-name">Sender 11</span>
+                        <p class="message-preview">Message content preview for Sender 11...</p>
+                        <a href="#" class="date-link">2024-09-03</a>
+                    </div>
+                </div>
+                
+                
+        </div>
+        
+    <script src="../js/dasboard.js"></script>
+</body>
+</html>

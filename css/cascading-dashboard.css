@@ -1,0 +1,746 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    background-image: url(../assets/img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+    height: 100vh; 
+    width: 320px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(202, 110, 49);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+/*compose new message*/
+
+/*overlay*/
+/*---------create overlay---------------*/
+
+/* General Styling */
+
+  /* Button to trigger overlay */
+  #openEmailOverlayBtn {
+    padding: 10px 20px;
+    background-color: rgb(202, 110, 49);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #openEmailOverlayBtn:hover {
+    background-color: rgb(202, 110, 49);
+  }
+  
+  /* The overlay - hidden by default */
+  .overla {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  /* Overlay content */
+  .overlay_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(105, 96, 96);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 900px;
+  }
+  
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Form Styling */
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  input[type="email"], input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  /* Send Button */
+  .send-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(202, 110, 49);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .send-btn:hover {
+    background-color: rgb(202, 110, 49);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 500px) {
+    .overlay-content {
+      width: 90%;
+    }
+  }
+  
+
+/* The overlay - hidden by default */
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  /* Overlay content */
+  .overlay-content {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(105, 96, 96);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .overlay-content li:hover {
+    background-color: rgb(202, 110, 49);
+    padding: 10px;
+  }
+  
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Basic styling for the list items */
+  ul {
+    list-style-type: none;
+  }
+  
+  li {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  form input {
+    padding: 5px;
+    width: 80%;
+  }
+  
+  form button {
+    padding: 8px 16px;
+    margin-top: 10px;
+  }
+  
+/*--------------------------*/
+
+/* Button Styles */
+.overlay-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(202, 110, 49);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px; 
+}
+
+
+/* Overlay Content */
+.overlay-content {
+    background-color: rgb(105, 96, 96); 
+    border-radius: 10px; 
+    text-align: center; 
+    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Inner Overlays */
+.inner {
+    display: none; 
+    
+}
+
+
+
+/* Top bar styling */
+.top-bar {
+    display: flex;
+    justify-content: space-between; 
+    background-color: rgba(255, 255, 255, 0.336);
+    height: 60px;
+    width: 1580px;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+.top-bar h1 {
+    font-size: 24px;
+    font-weight: normal;
+}
+/* Search Container Styling */
+.search-container {
+    margin-bottom: 20px; 
+    display: flex;
+    justify-content: center; 
+    width: 400px;
+    height: 45px;
+}
+
+/* Search Form Styling */
+.search-form {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex; 
+    align-items: center; 
+    border-radius: 30px; 
+    overflow: hidden; 
+    width: 700px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.253);
+}
+
+/* Search Input Styling */
+.search-input {
+    padding: 10px; 
+    border: none; 
+    outline: none; 
+    flex-grow: 1; 
+    font-size: 16px;
+    background-color: transparent;
+
+}
+
+/* Search Button Styling */
+.search-button {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    border: none; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s; 
+}
+
+.search-button i {
+    font-size: 18px; 
+}
+
+.search-button:hover {
+    background-color: rgb(202, 110, 49); 
+}
+
+/* Status Container Styling */
+.status-container {
+    display: flex; 
+    align-items: center; 
+    margin-top: 10px; 
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 40px;
+    padding: 10px;
+    border-radius: 25px;
+
+}
+
+/* Status Box Styling */
+.status-box {
+    width: 20px; 
+    height: 20px; 
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    transition: background-color 0.3s; 
+}
+
+/* Status Text Styling */
+.status-text {
+    font-size: 16px;
+    color: #333; 
+    cursor: pointer; 
+}
+
+/* user image styling */
+.user-profile {
+    display: flex; 
+    align-items: center; 
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+/* User Image Styling */
+.user-image {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    margin-right: 10px; 
+}
+
+/* User Name Styling */
+.user-name {
+    font-size: 16px;
+    color: #333; 
+}
+
+/* Main content styling */
+.main-content {
+    
+    padding: 20px;
+    overflow: auto; 
+    background-color: rgba(255, 255, 255, 0.336);
+    height: 810px;
+    width: 1579px;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+
+
+
+/* Dashboard content styling */
+.dashboard-content {
+    display: flex;
+    flex-direction: column; 
+    gap: 1px; 
+    padding: 20px;
+    overflow: auto; 
+    background-color: rgba(255, 255, 255, 0.336);
+    height: 810px;
+    width: 1579px;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+
+/* Card styling */
+.card {
+    
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    position: relative; 
+}
+
+.card-content {
+    flex-grow: 1; 
+    padding-left: 10px; 
+}
+
+/* Checkbox styling */
+.select-card {
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(170, 12, 12, 0.1);
+}
+
+/* Actions Container Styling */
+.actions-container {
+    display: flex;
+    margin-bottom: 20px; 
+    padding: 5px;
+    justify-content: space-between;
+    margin-bottom: 1px;
+}
+.actions-container input{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-top: 15px;
+}
+/* Select All Checkbox Styling */
+.select-all-checkbox {
+    margin-right: 10px; 
+    background-color: 2px solid #1e5da5; 
+    accent-color: 2px solid rgba(202, 110, 49, 0.897); 
+  
+}
+.select-all-checkbox:checked {
+    background-color: #1e5da5; 
+    accent-color:  rgba(202, 110, 49, 0.897); 
+}
+/*principal-button*/
+.principal-options{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+    width: 800px;
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    height: 45px;
+    width: 120px;
+    background-color: #0808081e;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+.options:hover{
+    color: rgba(236, 232, 228, 0.452);
+}
+.options1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    height: 45px;
+    width: 120px;
+    background-color: #0808081e;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+.options1:hover{
+    color: rgba(236, 232, 228, 0.452);
+}
+.options1 a{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, outline 0.3s ease; 
+    outline: none; 
+    margin-right: 8px;
+}
+.options1 h6{
+    font-size: 15px;
+    outline: none;
+}
+.options1 i{
+    background-color: rgb(202, 110, 49);
+    padding: 6px;
+    border-radius: 50%;
+    margin-left: 15px;
+    width: 50px;
+}
+.options a{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, outline 0.3s ease; 
+    outline: none; 
+    margin-right: 10px;
+}
+.options h6{
+    font-size: 15px;
+    outline: none;
+}
+.options i{
+    background-color: rgb(202, 110, 49);
+    padding: 6px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+/* card selection*/
+/* Card Styling */
+.card {
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+    cursor: pointer;
+    user-select: none; 
+    justify-content: space-between; 
+    gap: 10px; 
+}
+
+/* Custom Checkbox */
+.select-card {
+    display: none;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+/* Custom Checkbox Styling */
+.custom-checkbox {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: rgb(202, 110, 49); 
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer; 
+}
+
+
+/* Custom Checkbox Styling when Checked */
+.select-card:checked + .custom-checkbox {
+    background-color: #080808; 
+    border-color: rgb(202, 110, 49);
+}
+
+/* Add a checkmark for checked state */
+.custom-checkbox::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 14px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+/* Show checkmark when checked */
+.select-card:checked + .custom-checkbox::after {
+    opacity: 1;
+}
+
+/* Sender Image */
+.sender-img {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-right: 10px;
+}
+
+/* Sender Name */
+.sender-name {
+    flex-grow: 1; 
+    margin-right: 20px; 
+}
+.message-preview {
+    flex-grow: 2; 
+    color: #0e0d0d; 
+    font-size: 14px; 
+    margin-right: 30px; 
+}
+
+/* Date Link */
+.date-link {
+    color: rgb(5, 5, 5); 
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Change link color on hover */
+.date-link:hover {
+    text-decoration: underline; 
+    border: 1px rgb(202, 110, 49) solid;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+/* Styling for Selected Card */
+.card.selected {
+    background-color: #d0e6ff;
+    border-color: #d0e6ff;
+}
+
+/* More Button Styling */
+.more-button {
+    background: none; 
+    border: none; 
+    font-size: 20px; 
+    cursor: pointer; 
+    position: relative;
+    margin-left: -1340px;
+    margin-top: 5px;
+}
+
+/* Overlay Menu Styling */
+.overlay-menu {
+    display: none; 
+    position: absolute; 
+    top: 150px; 
+    left: 500px;
+    background-color: rgba(202, 110, 49, 0.897); 
+    border: 1px solid #292727;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.904);
+    z-index: 1000; 
+    width: 200px; 
+}
+
+/* Menu Item Styling */
+.menu-item {
+    padding: 10px;
+    cursor: pointer; 
+}
+
+.menu-item:hover {
+    background-color: #302e2e;
+}
+
+/* Card List and Card Styling */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; 
+}
+
+
+.card:hover{
+    border: 2px rgb(202, 110, 49) solid;
+}
+
+/* Selected Card Styling */
+.card.selected {
+    background-color: rgb(202, 110, 49); 
+}
+
+.select-card {
+    margin-right: 10px;
+    background-color: #881616;
+}
+
+/* Checkmark for selected checkbox */
+.select-checkbox:checked::before {
+    content: '✓';
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    
+}
+/* Select All button styling */
+.select-all-container {
+    margin-bottom: 15px; 
+}
+
+.select-all-btn {
+    padding: 5px 5px;
+    border: 2px solid rgb(202, 110, 49);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.select-all-btn:hover {
+    background-color: rgb(202, 110, 49);
+}
+/* move button*/
+/* Top Bar Styling */
+.top-move {
+    display: flex; 
+    justify-content: right;
+    align-items: center; 
+    padding: 10px; 
+    background-color: transparent; 
+    margin-right: 10px;
+    height: 40px;
+    font-weight: bold;
+}
+
+/* Navigation Button Styling */
+.move-button {
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 40px; 
+    margin-right: 10px; 
+    padding: 5px; 
+    color: rgb(202, 110, 49); 
+    transition: color 0.3s; 
+}
+
+/* Hover Effect for Navigation Buttons */
+.move-button:hover {
+    color: rgb(202, 110, 49);
+    
+}
